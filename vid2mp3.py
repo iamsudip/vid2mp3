@@ -17,6 +17,7 @@ def copyfileobj(fsrc, fdst, size, length=16*1024):
         if not buf:
             break
         fdst.write(buf)
+        print "Downloaded " + str(os.path.getsize(fdst)/1024) + "kb of" + str(size/1024) + "kb\r"
 #        sys.exit(0)
 
 def download(data):
@@ -24,7 +25,17 @@ def download(data):
         with open("%s" %data[1], "wb") as fobj:
             print "File size: " + data[2]
             response = requests.get(data[0], stream=True)
-            copyfileobj(response.raw, fobj, response.headers.get("content-length"))
+            fsrc = response.raw
+            size = response.headers.get("content-length")
+            length = 16*1024
+            while True:
+                buf = fsrc.read(length)
+                if not buf:
+                    break
+                fobj.write(buf)
+                sys.stdout.write("Downloaded " + str(os.path.getsize(data[1])/1024) + "kb of " + str(int(size)/1024) + " kb\r")
+                sys.stdout.flush()
+
     except IOError:
         data[1] = "Rename_manually.mp3"
         download(data)
