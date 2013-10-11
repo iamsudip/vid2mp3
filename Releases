@@ -1,0 +1,13 @@
+
+========
+Releases
+========
+
+v0.1
+----
+* First stable release.
+* Supports youtube.com.
+* Supports vimeo.com.
+* Supports dailymotion.com.
+* Downloads the audio file(.mp3) into present working directory
+
