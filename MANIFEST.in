@@ -1,0 +1,5 @@
+include *.py
+include README
+include vid2mp3
+include LICENSE
+include Releases
