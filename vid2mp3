@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 '''
 Commandline tool to download youtube flash videos as mp3.
 It communicates with listentoyoutube.com for this purpose.
@@ -65,5 +66,3 @@ def make_url(url):
 
 if __name__ == '__main__':
     make_url(sys.argv[1])
-
-# http://www.listentoyoutube.com/process.php?url=http://www.youtube.com/watch?v=abcdef
