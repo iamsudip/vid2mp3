@@ -1,9 +1,55 @@
+=======
 vid2mp3
 =======
 
-Terminal tool to convert video to mp3 via listentoyoutube.com
+Commandline tool to download youtube flash videos as mp3.
 
-TODO
+It communicates with listentoyoutube.com for this purpose.
+
+Vimeo.com, dailymotion.com, metacafe.com are also supported by this tool.
+
+Installation
+------------
+
+Now it is a stable release so if you want to install it in your system it requires su/superuser access.
+
+To install the script do this
+
+Option 1 : Install via pip ::
+
+    $ sudo pip install vid2mp3
+
+Option 2 : If you have downloaded the source ::
+
+    $ sudo python setup.py install
+
+
+How-to Use
+----------
+
+Use it as ::
+
+    $ vid2mp3 [video-link]
+
+Releases
+========
+
+v0.1
 ----
+* First stable release.
+* Supports youtube.com.
+* Supports vimeo.com.
+* Supports dailymotion.com.
+* Downloads the audio file(.mp3) into present working directory
 
-1. Write a download progress bar.
+
+Reporting Bugs
+--------------
+
+Please report bugs at github issue tracker: https://github.com/iamsudip/vid2mp3/issues
+
+Author
+------
+iamsudip <iamsudip@programmer.net>
+
+* http://github.com/iamsudip
