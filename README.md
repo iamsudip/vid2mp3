@@ -11,7 +11,7 @@ Vimeo.com, dailymotion.com, metacafe.com are also supported by this tool.
 Installation
 ------------
 
-Now it is a stable release so if you want to install it in your system it requires su/superuser access.
+Now it is an early release so if you want to install it in your system it requires su/superuser access.
 
 To install the script do this
 
@@ -40,8 +40,12 @@ v0.1
 * Supports youtube.com.
 * Supports vimeo.com.
 * Supports dailymotion.com.
-* Downloads the audio file(.mp3) into present working directory
+* Downloads the audio file(.mp3) into present working directory.
 
+v0.1.1
+------
+* More user friendly and verbose.
+* Fixed wrong url exception.
 
 Reporting Bugs
 --------------
