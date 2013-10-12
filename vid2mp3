@@ -6,20 +6,15 @@ It communicates with listentoyoutube.com for this purpose.
 Vimeo.com, dailymotion.com, metacafe.com are also supported by this tool.
 '''
 
+__appname__ = "vid2mp3"
+__version__ = "0.1.1"
+__author__ = "iamsudip <iamsudip@programmer.net>"
+__license__ = "MIT"
+
 import requests
 import sys, os
 from bs4 import BeautifulSoup
 import time
-
-def copyfileobj(fsrc, fdst, size, length=16*1024):
-    """copy data from file-like object fsrc to file-like object fdst"""
-    while True:
-        buf = fsrc.read(length)
-        if not buf:
-            break
-        fdst.write(buf)
-        print "Downloaded " + str(os.path.getsize(fdst)/1024) + "kb of" + str(size/1024) + "kb\r"
-#        sys.exit(0)
 
 def download(data):
     try:
@@ -36,7 +31,8 @@ def download(data):
                 fobj.write(buf)
                 sys.stdout.write("Downloaded " + str(os.path.getsize(data[1])/1024) + "kb of " + str(int(size)/1024) + " kb\r")
                 sys.stdout.flush()
-
+            print "Download complete."
+            sys.exit(0)
     except IOError:
         data[1] = "Rename_manually.mp3"
         download(data)
@@ -59,10 +55,17 @@ def process_url(s_url, sleep_time = 10):
         process_url(s_url, sleep_time)
 
 def make_url(url):
-    response = requests.post("http://www.listentoyoutube.com/cc/conversioncloud.php", data={"mediaurl": url})
-    s_url = eval(response.text)['statusurl'].replace('\/', '/')
-    data = process_url(s_url)
-    download(data)
+    try:
+        response = requests.post("http://www.listentoyoutube.com/cc/conversioncloud.php", data={"mediaurl": url})
+        s_url = eval(response.text)['statusurl'].replace('\/', '/')
+        data = process_url(s_url)
+        download(data)
+    except KeyError:
+        print "Please check the given link.\n Exiting"
+        sys.exit(1)
 
 if __name__ == '__main__':
-    make_url(sys.argv[1])
+    if len(sys.argv) == 2:
+        make_url(sys.argv[1])
+    else:
+        print "usage:\n vid2mp3 [link-to-video]"

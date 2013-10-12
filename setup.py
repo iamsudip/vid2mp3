@@ -20,7 +20,7 @@ except ImportError:
     requirements.append('requests')
 
 setup(name = 'vid2mp3',
-    version = '0.1',
+    version = '0.1.1',
     description = "Script to extract audio only from online videos",
     long_description = long_description,
     platforms = ["Linux"],
@@ -37,7 +37,7 @@ setup(name = 'vid2mp3',
     include_package_data = True,
     scripts = ['vid2mp3'],
     classifiers=[
-        'Development Status :: 5 - Production/Stable',
+        'Development Status :: 4 - Beta',
         'Environment :: Console',
         'License :: OSI Approved :: MIT License',
         'Intended Audience :: End Users/Desktop',
