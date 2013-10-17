@@ -7,7 +7,7 @@ Vimeo.com, dailymotion.com, metacafe.com are also supported by this tool.
 '''
 
 __appname__ = "vid2mp3"
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 __author__ = "iamsudip <iamsudip@programmer.net>"
 __license__ = "MIT"
 

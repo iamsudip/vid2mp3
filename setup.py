@@ -1,5 +1,10 @@
 #!/usr/bin/env python
-"""pysub-dl project"""
+
+'''
+Commandline tool to download youtube flash videos as mp3.
+It communicates with listentoyoutube.com for this purpose.
+Vimeo.com, dailymotion.com, metacafe.com are also supported by this tool.
+'''
 
 requirements = []
 
@@ -15,12 +20,16 @@ try:
 except ImportError:
     requirements.append('BeautifulSoup4')
 try:
+    import lxml
+except ImportError:
+    requirements.append('lxml')
+try:
     import requests
 except ImportError:
     requirements.append('requests')
 
 setup(name = 'vid2mp3',
-    version = '0.1.1',
+    version = '0.1.2',
     description = "Script to extract audio only from online videos",
     long_description = long_description,
     platforms = ["Linux"],
@@ -32,7 +41,8 @@ setup(name = 'vid2mp3',
     install_requires = requirements,
     dependency_links = ['https://pypi.python.org/pypi/requests/1.2.3',
                         'https://pypi.python.org/pypi/beautifulsoup4/4.3.2',
-                        'https://pypi.python.org/pypi/setuptools/0.6c11'
+                        'https://pypi.python.org/pypi/setuptools/0.6c11',
+                        'https://pypi.python.org/pypi/lxml/2.3.2'
 ],
     include_package_data = True,
     scripts = ['vid2mp3'],
