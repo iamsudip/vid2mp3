@@ -47,6 +47,10 @@ v0.1.1
 * More user friendly and verbose.
 * Fixed wrong url exception.
 
+v0.1.2
+------
+* Added dependency link for dependency lxml
+
 Reporting Bugs
 --------------
 

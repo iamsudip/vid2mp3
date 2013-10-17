@@ -14,6 +14,9 @@ v0.1
 v0.1.1
 ------
 * More user friendly and verbose.
-* Fixed wrog url exception.
+* Fixed wrnog url exception.
 
+v0.1.2
+------
+* Added dependency link for dependency lxml
 
