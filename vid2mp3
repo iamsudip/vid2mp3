@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# -*- coding: utf-8 -*-
+
 '''
 Commandline tool to download youtube flash videos as mp3.
 It communicates with listentoyoutube.com for this purpose.
@@ -7,7 +9,7 @@ Vimeo.com, dailymotion.com, metacafe.com are also supported by this tool.
 '''
 
 __appname__ = "vid2mp3"
-__version__ = "0.1.2"
+__version__ = "0.1.3"
 __author__ = "iamsudip <iamsudip@programmer.net>"
 __license__ = "MIT"
 
@@ -40,10 +42,16 @@ def download(data):
 def process_url(s_url, sleep_time = 10):
     try:
         s_url_soup = BeautifulSoup(requests.get(s_url).text, "xml")
-        data = [str(s_url_soup.downloadurl.contents[0]),
-            str(s_url_soup.file.contents[0]),
-            str(s_url_soup.filesize.contents[0])
-        ]
+        try:
+            data = [str(s_url_soup.downloadurl.contents[0]),
+                str(s_url_soup.file.contents[0].encode('ascii', 'ignore')),
+                str(s_url_soup.filesize.contents[0])
+            ]
+        except UnicodeEncodeError:
+            data = [str(s_url_soup.downloadurl.contents[0]),
+                "Rename_manually.mp3",
+                str(s_url_soup.filesize.contents[0])
+            ]
         if not data[0]:
             raise AttributeError
         print "Downloading: %s" % data[1]

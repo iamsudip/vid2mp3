@@ -51,6 +51,11 @@ v0.1.2
 ------
 * Added dependency link for dependency lxml
 
+v0.1.3
+------
+* Fixed bug: UnicodeError handled when there's a unicode problem.
+
+
 Reporting Bugs
 --------------
 
